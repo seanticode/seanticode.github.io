@@ -1,0 +1,109 @@
+<!-- Sean Jabien B. Bergula -->
+<!-- Section G1L -->
+<!-- Exercise 10 - ITEA Order Form page. Attributes were changed with accordance to the script. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bergula's ITEA Order Form </title>
+	<link rel="stylesheet" type="text/css" href="Bergula_ex10.css">
+</head>
+<body> 
+	<div class="top-rectangle">
+		<div class="ITEA-logo">ITEA</div>
+	</div>
+	<form id="form">
+		<fieldset>
+		<legend>Customer Information</legend>
+			<label for="name"> Name: </label> <input type="text" name="uname" id="name" required>
+			<br>
+			<label for="mobile"> Mobile Number: </label> <input type="text" name="mobilenum" id="mobile" placeholder="09XXXXXXXXX" maxlength="11" required> <!-- placeholder text, maxlength of characters, and required attributes from https://www.w3schools.com/html/html_form_attributes.asp -->
+			<br>
+			<label for="email"> Email: </label> <input type="text" name="emailadd" id="email" required>
+		</fieldset>
+
+		<fieldset>
+		<legend>ITEA Details</legend>
+			<label for="numberofocc"> Number of Occupants (1-5) </label> <input type="text" name="numberofocc" id="numberofocc">
+			<br>
+			<h3>Room Type</h3>
+				<br>
+				<input type="radio" onclick="toggleBedSize()" name="roomtype" id="bedroomType" title="Bedroom" checked> <label for="bedroomType"> Bedroom </label>
+				<br>
+				<input type="radio" onclick="toggleBedSize()" name="roomtype" id="livingroomType" title="Living Room"> <label for="livingroomType"> Living Room </label>
+				<br>
+				<input type="radio" onclick="toggleBedSize()" name="roomtype" id="officeType" title="Office"> <label for="officeType"> Office </label>
+				<br>
+				<input type="radio" onclick="toggleBedSize()" name="roomtype" id="childrensroomType" title="Childrens' Room"> <label for="childrensroomType"> Children's Room </label>
+			<br>
+			<h3>Bed Size</h3>
+				<br>
+				<input type="radio" name="bedsize" id="singleSize" value="12000" title="Single" checked> <label for="singleSize"> Single </label>
+				<br>
+				<input type="radio" name="bedsize" id="doubleSize" value="13500" title="Double"> <label for="doubleSize"> Double </label>
+				<br>
+				<input type="radio" name="bedsize" id="queenSize" value="16000" title="Queen"> <label for="queenSize"> Queen </label>
+				<br>
+				<input type="radio" name="bedsize" id="kingSize" value="20000" title="King"> <label for="kingSize"> King </label>
+			<br>
+			<h3>Cabinets</h3>
+				<br>
+				<input type="radio" name="cabinets" id="bookcaseCab" value="5000" title="Bookcases" checked> <label for="bookcaseCab"> Bookcases </label>
+				<br>
+				<input type="radio" name="cabinets" id="storageCab" value="10500" title="Storage shelves"> <label for="storageCab"> Storage shelves </label>
+				<br>
+				<input type="radio" name="cabinets" id="wallCab" value="2500" title="Wall shelves"> <label for="wallCab"> Wall shelves </label>
+			<br>
+			<h3>Tables</h3>
+				<br>
+				<input type="checkbox" name="tables" id="deskTab" value="7000" title="Desk"> <label for="deskTab"> Desk </label>
+				<br>
+				<input type="checkbox" name="tables" id="bedsideTab" value="3500" title="Bedside Table"> <label for="bedsideTab"> Bedside Table </label>
+				<br>
+				<input type="checkbox" name="tables" id="multifxnTab" value="10000" title="Multifunctional Table"> <label for="multifxnTab"> Multifunctional Table </label>
+				<br>
+				<input type="checkbox" name="tables" id="dressingTab" value="8000" title="Dressing Table"> <label for="dressingTab"> Dressing Table </label>
+			<br>
+			<h3>Decorative Additions</h3>
+				<br>
+				<input type="checkbox" name="decor" id="mirrorDecor" value="2500" title="Mirror"> <label for="mirrorDecor"> Mirror </label>
+				<br>
+				<input type="checkbox" name="decor" id="rugDecor" value="8000" title="Rug"> <label for="rugDecor"> Rug </label>
+				<br>
+				<input type="checkbox" name="decor" id="wallaccDecor" value="1000" title="Wall Accent"> <label for="wallaccDecor"> Wall Accent </label>
+				<br>
+				<input type="checkbox" name="decor" id="clockDecor" value="500" title="Clock"> <label for="clockDecor"> Clock </label>
+			<br>
+			<label for="roomSize"> <h3>Room Size</h3> </label>
+				<select name="roomSize" id="roomSize">
+					<option value="1">Small</option>
+					<option value="1.25">Medium</option>
+					<option value="1.5">Large</option>
+					<option value="2">Extra Large</option>
+				</select>
+		</fieldset>
+
+		<fieldset>
+		<legend>Delivery Details</legend>
+			<h3>Shipping</h3>
+				<input type="radio" onclick="toggleShipping()" name="shipping" id="delivery" value="1000" required> <label for="delivery" checked> Delivery </label> <!-- note to self: radio input types are mutually exclusive only with elements of the same name -->
+				<br>
+				<input type="radio" onclick="toggleShipping()" name="shipping" id="thirdParty" value="0" required> <label for="thirdParty"> Third-party Pickup </label>
+			<br>
+			<h3>Delivery Address</h3>
+			<br>
+			<textarea name="deliveryAddress" id="deliveryAddress" rows="10" cols="50" required> Address here... </textarea>
+			<br>
+			<label for="deliveryDate"> Preferred Delivery Date </label> <input type="date" name="deliveryDate" id="deliveryDate" required onchange="correctDate()">
+			<span id="deliveryDateMSG"></span>
+			<br>
+			<label for="deliveryTime"> Preferred Delivery Time </label> <input type="time" name="deliveryTime" id="deliveryTime" required onchange="correctTime()">
+			<span id="deliveryTimeMSG"></span>
+		</fieldset>
+		<div class="button-container">
+			<button type="submit" onclick="userReceipt()">Submit</button>
+			<button type="reset">Reset</button>
+		</div>
+	</form>
+	<script src="Bergula_ex10.js"></script>
+</body>
+</html>

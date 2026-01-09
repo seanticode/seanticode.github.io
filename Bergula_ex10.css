@@ -1,0 +1,81 @@
+/* Sean Jabien B. Bergula */
+/* Section G1L */
+/* Exercise 10 - Stylesheet for Bergula_ex8.html. Added a header with the bootleg ITEA logo centered in it. Also added external font families, styled the fieldset, and generally just made it look cleaner. */
+
+
+@font-face { /* @font-face is an at-rule that allows the use of locally-saved fonts or fonts saved in remote servers, instead of using the generic font families CSS has in default.*/
+  font-family: 'Inter Bold';
+  src: url('fonts/Inter_28pt-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face { /* In this case, I used multiple instances of this at-rule to install both bold and regular typefaces of the Inter font. Mas mukha shang ganap instead of using TNR or Arial. */
+  font-family: 'Inter Regular';
+  src: url('fonts/Inter_24pt-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0px;
+  font-family: 'Inter Regular';
+}
+
+legend {
+  font-family: 'Inter Bold';
+  font-size: 50px;
+}
+
+fieldset {
+  border: 2px solid black;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+
+h3 {
+  font-family: 'Inter Bold';
+  margin-bottom: 0;
+}
+
+form {
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-top: 10px;
+}
+
+.button-container {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+button {
+  font-family: 'Inter Bold';
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.top-rectangle {
+  background-color: #228EC9;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ITEA-logo {
+  font-family: 'Inter Bold';
+  font-size: 50px;
+  letter-spacing: -5px;
+  color: #228EC9;
+  background-color: #F5E302;
+  padding-left: 20px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 100%;
+}
